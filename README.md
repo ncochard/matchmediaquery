@@ -1,5 +1,5 @@
 # matchmediaquery
 
-`matchmediaquery` is a fork of `matchmedia`. The author of `matchmedia` has not published to the npm repository the lastest version of `matchmedia`. So `matchmediaquery` is a replacement that can be used until `matchmedia` is maintained. 
-
 Media queries for your client and server
+
+`matchmediaquery` is a fork of `matchmedia`. The author of `matchmedia` has not published the latest version of `matchmedia` to the npm repository. So `matchmediaquery` can be used as an alternative until `matchmedia` is published.
