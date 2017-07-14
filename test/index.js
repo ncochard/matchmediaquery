@@ -34,4 +34,11 @@ lab.experiment('matchMedia', function(){
     mql.removeListener(noop);
     done();
   });
+
+  lab.test('can attempt to dispose on server', function(done){
+    var mql = matchMedia('(max-width: 123px)', { width: 123 });
+    mql.removeListener(noop);
+    done();
+  });
+
 });
