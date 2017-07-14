@@ -40,7 +40,9 @@ function Mql(query, values){
   }
 
   function dispose(){
-    mql.removeListener(update);
+    if(mql){
+      mql.removeListener(update);
+    }
   }
 }
 
