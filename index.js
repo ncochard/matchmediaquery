@@ -4,9 +4,9 @@ var staticMatch = require('css-mediaquery').match;
 var dynamicMatch = typeof window !== 'undefined' ? window.matchMedia : null;
 
 // our fake MediaQueryList
-function Mql(query, values){
+function Mql(query, values, forceStatic){
   var self = this;
-  if(dynamicMatch){
+  if(dynamicMatch && !forceStatic){
     var mql = dynamicMatch.call(window, query);
     this.matches = mql.matches;
     this.media = mql.media;
@@ -46,8 +46,8 @@ function Mql(query, values){
   }
 }
 
-function matchMedia(query, values){
-  return new Mql(query, values);
+function matchMedia(query, values, forceStatic){
+  return new Mql(query, values, forceStatic);
 }
 
 module.exports = matchMedia;
