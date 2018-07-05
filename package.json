@@ -1,6 +1,6 @@
 {
   "name": "matchmediaquery",
-  "version": "0.2.1",
+  "version": "0.3.0",
   "description": "Media queries for your client and server",
   "main": "index.js",
   "scripts": {
