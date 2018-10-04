@@ -1,13 +1,15 @@
 'use strict';
 
 var staticMatch = require('css-mediaquery').match;
-var dynamicMatch = typeof window !== 'undefined' ? window.matchMedia : null;
 
 // our fake MediaQueryList
-function Mql(query, values, forceStatic){
+function Mql(query, values, forceStatic, targetWindow){
   var self = this;
+  var currentWindow = targetWindow || window;
+  var dynamicMatch = typeof currentWindow !== 'undefined' ? currentWindow.matchMedia : null;
+
   if(dynamicMatch && !forceStatic){
-    var mql = dynamicMatch.call(window, query);
+    var mql = dynamicMatch.call(currentWindow, query);
     this.matches = mql.matches;
     this.media = mql.media;
     // TODO: is there a time it makes sense to remove this listener?
@@ -46,8 +48,8 @@ function Mql(query, values, forceStatic){
   }
 }
 
-function matchMedia(query, values, forceStatic){
-  return new Mql(query, values, forceStatic);
+function matchMedia(query, values, forceStatic, targetWindow){
+  return new Mql(query, values, forceStatic, targetWindow);
 }
 
 module.exports = matchMedia;
