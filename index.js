@@ -6,8 +6,13 @@ var dynamicMatch = typeof window !== 'undefined' ? window.matchMedia : null;
 // our fake MediaQueryList
 function Mql(query, values, forceStatic){
   var self = this;
-  if(dynamicMatch && !forceStatic){
-    var mql = dynamicMatch.call(window, query);
+  var mql;
+
+  // matchMedia will return null in FF when it's called in a hidden iframe
+  // ref: https://stackoverflow.com/a/12330568
+  if(dynamicMatch && !forceStatic) mql = dynamicMatch.call(window, query);
+
+  if (mql) {
     this.matches = mql.matches;
     this.media = mql.media;
     // TODO: is there a time it makes sense to remove this listener?
