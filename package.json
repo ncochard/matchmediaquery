@@ -28,7 +28,7 @@
     "css-mediaquery": "^0.1.2"
   },
   "devDependencies": {
-    "code": "^4.1.0",
-    "lab": "^14.1.1"
+    "@hapi/lab": "^22.0.2",
+    "code": "^5.2.4"
   }
 }
