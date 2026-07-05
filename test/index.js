@@ -1,7 +1,7 @@
 'use strict';
 
 var lab = exports.lab = require('@hapi/lab').script();
-var code = require('code');
+var code = require('@hapi/code');
 
 var matchMedia = require('../');
 
